@@ -1,0 +1,234 @@
+@import '../../global-styles/style.scss';
+
+.popular-section {
+    border-bottom: $strokeBig solid $colorWhiteDarker30;
+    padding-bottom: 18px;
+    position: relative;
+    background: $colorWhite;
+
+    @media screen and (min-width: 1025px) {
+        background: transparent;
+        border-bottom: none;
+        margin-bottom: 12px;
+    }
+
+    & &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+
+        @media screen and (min-width: 1025px) {
+            background: $colorWhite;
+            height: 68px;
+            border-radius: $roundingSmall;
+            border: $strokeSmall solid $colorWhiteDarker50;
+            grid-template-columns: repeat(4, min-content) 1fr;
+        }
+    }
+
+    & &__text--title {
+        grid-column: 1 / -1;
+        padding: 24px 16px;
+        margin: 0;
+        width: min-content;
+
+        @media screen and (min-width: 1025px) {
+            padding: 0;
+            margin-bottom: 24px;
+            &:after {
+                content: "post";
+                margin-left: 5px;
+            }
+        }
+    }
+
+    & &__button {
+        width: min-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        @media screen and (min-width: 1025px) {
+            background: $colorWhiteDarker10;
+            height: min-content;
+            padding: 10px 21px;
+            align-self: center;
+            border-radius: $roundingLarge;
+            transition-duration: 200ms;
+
+            &:hover,
+            &:focus,
+            &:active {
+                scale: 1.15;
+            }
+
+            & .arrow {
+                display: none;
+            }
+        }
+
+        &--listing {
+            margin-left: 23px;
+        }
+
+        &--more {
+            margin-right: 21px;
+            justify-self: end;
+            gap: 10px;
+
+            @media screen and (min-width: 1025px) {
+                background: transparent;
+                padding: 0;
+            }
+        }
+
+        &--dropdown {
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        &--country {
+            display: none;
+
+            @media screen and (min-width: 1025px) {
+                display: flex;
+                margin-left: 14px;
+                height: 38px;
+            }
+        }
+
+        span {
+            color: $colorWhiteDarker70;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &:active {
+            span {
+                color: $colorPrimary;
+            }
+
+            .popular-section__icon {
+                path {
+                    stroke: $colorPrimary;
+                }
+            }
+
+            .popular-section__dots {
+                path {
+                    fill: $colorPrimary;
+                }
+            }
+        }
+    }
+
+    & &__dropdown {
+        position: absolute;
+        bottom: -3.5em;
+        left: 0.5em;
+        display: none;
+
+        flex-direction: column;
+        gap: 1em;
+
+        width: 7em;
+        background: $colorWhite;
+        border: $strokeSmall solid $colorWhiteDarker30;
+        border-radius: $roundingSmall;
+        padding: 0.5em 0.5em 0.5em 0;
+
+        &[aria-expanded="true"] {
+            display: flex;
+        }
+
+        &--listing {
+            @media screen and (min-width: 1025px) {
+                display: none !important;
+            }
+        }
+    }
+
+    & &__button--primary {
+        @media screen and (min-width: 1025px) {
+            span {
+                color: $colorPrimary;
+            }
+
+            .popular-section__icon {
+                path {
+                    stroke: $colorPrimary;
+                }
+            }
+        }
+    }
+
+    & &__link {
+        display: none;
+
+        @media screen and (min-width: 1025px) {
+            align-self: center;
+            display: flex;
+            gap: clamp(4px, calc((100vw - 1000px)/36.6), 12px);
+            margin-left: clamp(10px, calc((100vw - 1000px)/15), 29px);
+            text-decoration: none;
+            color: $colorWhiteDarker70;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: $colorPrimary;
+
+            path {
+                stroke: $colorPrimary;
+            }
+        }
+    }
+
+    & &__dots {
+        @media screen and (min-width: 1025px) {
+            margin-left: 10px;
+        }
+    }
+
+    & &__countries {
+        display: flex;
+        flex-direction: column;
+        width: calc(154px - 2 * 24px);
+        height: calc(256px - 2 * 24px);
+        left: 100px;
+        top: 105px;
+        padding: 24px;
+        overflow-y: scroll;
+
+        &[aria-hidden="true"] {
+            display: none;
+        }
+
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
+    }
+
+    & &__country {
+        border: none;
+        background: transparent;
+        text-align: left;
+        font-size: 14px;
+        color: $colorWhiteDarker60;
+        cursor: pointer;
+
+        &:hover {
+            color: $colorPrimary;
+        }
+
+        &--selected {
+            color: $colorPrimary;
+        }
+    }
+}

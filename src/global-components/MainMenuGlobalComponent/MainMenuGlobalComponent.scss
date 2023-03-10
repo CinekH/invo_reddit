@@ -1,0 +1,183 @@
+@import '../../global-styles/style';
+
+.main-menu {
+    $menuWidth: 323px;
+    $menuMargin: 50px;
+    $linkPadding: 9px;
+
+    position: absolute;
+    top: 67px;
+    z-index: 99;
+    background: $colorWhite;
+
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 0px;
+    width: calc($menuWidth - (2 * $menuMargin) - 2px);
+
+    border: $strokeSmall solid $colorWhiteDarker50;
+    border-top: none;
+
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+
+    padding: 6px $menuMargin;
+
+    ul,
+    li,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    button {
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    &[aria-hidden="false"] {
+        height: calc(100vh - 80px);
+        height: calc(100dvh - 80px);
+        visibility: visible;
+    }
+
+    .flame,
+    .arrow {
+        path {
+            stroke: $colorBlack;
+        }
+    }
+
+    .dots {
+        path {
+            fill: $colorBlack;
+        }
+    }
+
+    & &__list {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (min-width: 1025px) {
+            height: calc(100vh - 60px);
+            height: calc(100dvh - 60px);
+        }
+    }
+
+    & &__section {
+        &--bottom {
+            margin-top: auto;
+            padding: $menuMargin 0;
+        }
+    }
+
+    & &__title {
+        letter-spacing: -0.5px;
+        color: $colorWhiteDarker60;
+        margin-bottom: 6px;
+        margin-top: 44px;
+    }
+
+    & &__link,
+    & &__element {
+        color: inherit;
+        text-decoration: none;
+
+        font-size: 16px;
+        font-weight: 400;
+
+        height: 42px;
+        width: $menuWidth;
+        margin-left: calc($menuMargin * (-1));
+
+        display: flex;
+        align-items: center;
+
+        box-sizing: content-box;
+
+        cursor: pointer;
+
+        overflow: visible;
+
+        &:hover,
+        &:focus {
+            background: $colorWhiteDarker10;
+        }
+    }
+
+    & &__spacer {
+        width: 49px;
+        height: 100%;
+    }
+
+    & &__icon-container {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        padding-right: 12px;
+    }
+
+    .arrow {
+        margin-left: auto;
+        margin-right: 56px;
+        transition-duration: 300ms;
+    }
+
+    & &__categories {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    & &__subcategory {
+        .main-menu__link {
+            font-size: 14px;
+            color: $colorWhiteDarker60;
+            height: 35px;
+        }
+    }
+
+    & &__subcategories {
+        max-height: 0px;
+        transition-duration: 300ms;
+        visibility: hidden;
+
+        &[aria-hidden="false"] {
+            visibility: visible;
+            max-height: 250px;
+        }
+    }
+
+    @media screen and (min-width: 1025px) {
+        visibility: visible;
+        height: calc(100% + 17px);
+        position: sticky;
+        grid-row: 2 / span 2;
+        margin-top: -50px;
+        
+        &[aria-hidden="false"] {
+            height: calc(100% + 17px);
+        }
+    }
+
+    & &__icon {
+        &--gaming,
+        &--sports,
+        &--business,
+        &--crypto,
+        &--celebrity {
+            translate: 0 -1px;
+        }
+
+        &--getapp {
+            translate: 0 -2px;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import '../../../../global-styles/style.scss';
+
+.main-container {
+    @media screen and (min-width: 1025px) {
+        width: min(100%, 654px);
+        justify-self: end;
+        grid-row: 3 / 3;
+        grid-column: 3 / 3;
+        margin-top: 25px;
+    }
+}

@@ -1,0 +1,20 @@
+@import '../../../../../global-styles/style.scss';
+
+.next-page {
+    display: flex;
+    justify-content: end;
+    padding: 18px 16px;
+    background: $colorWhite;
+
+    & &__button {
+        background: $colorPrimary;
+        color: $colorWhite;
+        border: none;
+        padding: 8px 16px;
+        border-radius: $roundingLarge;
+    }
+
+    @media screen and (min-width: 1025px) {
+        display: none;
+    }
+}

@@ -1,0 +1,115 @@
+/// Main Styles File
+/// Here we import all the global Styles files we need for our project.
+
+@import "styles/normalize.scss";
+@import "styles/root.scss";
+@import "styles/fonts.scss";
+
+body {
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0px;
+    color: var(--color-black);
+    background: var(--color-body);
+}
+
+/* TYPOGRAPHY */
+
+.text-logo {
+    font-size: var(--font-size-logo);
+    font-weight: var(--font-weight-medium);
+}
+
+.text-large {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-medium);
+}
+
+.text-big {
+    font-size: var(--font-size-big);
+    font-weight: var(--font-weight-medium);
+}
+
+.text-regular {
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-medium);
+}
+
+.text-small {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: -1px;
+}
+
+.text-tiny {
+    font-size: var(--font-size-tiny);
+    font-weight: var(--font-size-tiny);
+    letter-spacing: -1px;
+}
+
+/* ROTATED CLASS */
+
+.rotated {
+    transform: scaleY(-1);
+}
+
+svg {
+    transition-duration: 300ms;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .text-large {
+        --font-size-large: 18px;
+    }
+
+    .text-big {
+        font-weight: var(--font-weight-regular);
+    }
+
+    .text-small {
+        --font-size-small: 12px;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0px;
+    }
+
+    .text-tiny {
+        letter-spacing: 0px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .text-logo {
+        --font-size-logo: 28px;
+    }
+
+    .text-large {
+        --font-size-large: 18px;
+    }
+
+    .text-big {
+        font-weight: var(--font-weight-regular);
+    }
+
+    .text-small {
+        --font-size-small: 12px;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0px;
+    }
+
+    .text-tiny {
+        letter-spacing: 0px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: min-content 1fr min-content minmax(auto, 339px) minmax(25px, 1fr);
+        grid-template-rows: repeat(3, min-content);
+        gap: 25px;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+  }
+}

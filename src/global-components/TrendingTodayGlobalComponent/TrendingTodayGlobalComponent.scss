@@ -1,0 +1,26 @@
+@import '../../global-styles/style.scss';
+
+.trending-today {
+    display: none;
+
+    @media screen and (min-width: 1025px) {
+        display: flex;
+        flex-direction: column;
+        grid-row: 2 / 2;
+        grid-column: 3 / span 2;
+        width: min-content;
+        gap: 24px;
+        width: min(calc(100vw - 422px), 1018px);
+        margin-top: 25px;
+    }
+
+    & &__cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    & &__title {
+        margin: 0;
+    }
+}
