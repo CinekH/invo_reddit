@@ -64,11 +64,6 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-
-        @media screen and (min-width: 1025px) {
-            height: calc(100vh - 60px);
-            height: calc(100dvh - 60px);
-        }
     }
 
     & &__section {
@@ -157,13 +152,13 @@
 
     @media screen and (min-width: 1025px) {
         visibility: visible;
-        height: calc(100% + 17px);
+        height: calc(100vh - 80px);
         position: sticky;
         grid-row: 2 / span 2;
         margin-top: -50px;
         
         &[aria-hidden="false"] {
-            height: calc(100% + 17px);
+            height: calc(100vh + 80px);
         }
     }
 

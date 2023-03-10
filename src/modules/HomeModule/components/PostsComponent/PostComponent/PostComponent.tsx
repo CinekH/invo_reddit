@@ -22,9 +22,9 @@ export const PostComponent: React.FC<IPostComponentProps> = ({ subReddit, subRed
   return (
     <article className="post">
       <div className="post__menu">
-        <button><ArrowUp alt="vote up" /></button>
+        <button aria-label='vote up for this post'><ArrowUp alt="vote up" /></button>
         <p className='text-regular post__likes'>{likes}</p>
-        <button><ArrowUp className="arrow-down" alt="vote down" /></button>
+        <button aria-label='vote down for this post'><ArrowUp className="arrow-down" alt="vote down" /></button>
       </div>
       <div className="post__content">
         <header className='post__header'>
@@ -40,18 +40,18 @@ export const PostComponent: React.FC<IPostComponentProps> = ({ subReddit, subRed
         </div>
         <div className='post__bottom-menu'>
           <div className='post__block--left'>
-            <button className='post__button post__button--comments text-small'>
+            <button className='post__button post__button--comments text-small' aria-label='show comments'>
               <CommentsIcon alt="comment post" /> {comments} Comments
             </button>
-            <button className='post__button post__button--share text-small'>
+            <button className='post__button post__button--share text-small' aria-label='share this post'>
               <Share alt="share post" /> Share
             </button>
-            <button className='post__button post__button--save text-small'>
+            <button className='post__button post__button--save text-small' aria-label='save this post'>
               <Save alt="save post" /> Save
             </button>
           </div>
           <div>
-            <button className='post__button'>
+            <button className='post__button' aria-label='show more options'>
               <Dots alt="more" />
             </button>
           </div>

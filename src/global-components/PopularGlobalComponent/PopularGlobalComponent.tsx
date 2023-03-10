@@ -26,6 +26,7 @@ export const PopularGlobalComponent: React.FC = () => {
                     className='popular-section__button popular-section__button--listing popular-section__button--primary'
                     aria-controls="popular-menu-dropdown"
                     onClick={() => setShowDropdown(prev => !prev)}
+                    aria-label="sort by popular"
                 >
                     <FlameIcon className="popular-section__icon" />
                     <span className='text-regular'>Popular</span>
@@ -33,10 +34,10 @@ export const PopularGlobalComponent: React.FC = () => {
                 </button>
                 <div className="popular-section__dropdown popular-section__dropdown--listing" id="popular-menu-dropdown" aria-expanded={showDropdown}>
                     <button className='popular-section__button popular-section__button--dropdown'>
-                        <Top className="popular-section__icon" />
+                        <Top className="popular-section__icon" aria-label="sort by top"/>
                         <span className='text-regular'>New</span>
                     </button>
-                    <button className='popular-section__button popular-section__button--dropdown'>
+                    <button className='popular-section__button popular-section__button--dropdown' aria-label="sort by new">
                         <New className="popular-section__icon" />
                         <span className='text-regular'>Top</span>
                     </button>
@@ -46,6 +47,7 @@ export const PopularGlobalComponent: React.FC = () => {
                     aria-controls="popular-menu-countries"
                     onClick={() => setShowCountries(prev => !prev)}
                     aria-expanded={showCountries}
+                    aria-label="open countries menu"
                 >
                     <span className='text-regular'>{country}</span>
                     <ArrowDown className={showCountries ? 'popular-section__icon rotated' : 'popular-section__icon'} />
@@ -57,21 +59,22 @@ export const PopularGlobalComponent: React.FC = () => {
                             key={countryObject.code}
                             className={`popular-section__country${countryObject.name === country ? ' popular-section__country--selected' : ''}`}
                             onClick={() => updateCountry(countryObject.name)}
+                            aria-label="select country"
                         >
                             {countryObject.name}
                         </button>
                     )
                     )}
                 </div>
-                <a className='popular-section__link' href="#">
+                <a className='popular-section__link' href="#" aria-label="sort by new">
                     <New className="popular-section__icon" />
                     <span className='text-regular'>Top</span>
                 </a>
-                <a className='popular-section__link' href="#">
+                <a className='popular-section__link' href="#" aria-label="sort by top">
                     <Top className="popular-section__icon" />
                     <span className='text-regular'>New</span>
                 </a>
-                <button className='popular-section__button popular-section__button--more'>
+                <button className='popular-section__button popular-section__button--more' aria-label="show more options">
                     <Dots className='popular-section__dots' />
                     <ArrowDown className='popular-section__icon arrow' />
                 </button>
