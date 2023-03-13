@@ -11,7 +11,7 @@ const App: React.FC = () => {
       cannot find the right solution
     */
     setShowMainMenu(false);
-    history.pushState( "nohb", null, "" );
+    history.pushState( "nohb", '', "" );
   }
 
   const toggleMainMenu = () => {
